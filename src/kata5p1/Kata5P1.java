@@ -42,7 +42,21 @@ public class Kata5P1 {
         }
         reader.close();
         
+        query = "select * from emails";
+        rs = stmt.executeQuery(query);
+        while (rs.next()){           
+            int Id = rs.getInt("Id");
+            String mails = rs.getString("Mail");
+            System.out.println(Id + "\t" + mails);
+        }
         
+        query = "select count (*) from emails";
+        rs = stmt.executeQuery(query);
+        while (rs.next()){           
+            
+            int num = rs.getInt(1);
+            System.out.println(num);
+        }
         
     }
 }
